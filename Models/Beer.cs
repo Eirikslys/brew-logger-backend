@@ -27,5 +27,5 @@ public class Beer
     public BitteringCalculation BitteringCalculation { get; set; }
     public MashingProcedure MashingProcedure { get; set; }
     public WaterTreatment WaterTreatment { get; set; }
-    public YeastingDetails YeastingDetails { get; set; }
+    public FermentingDetail YeastingDetails { get; set; }
 }
