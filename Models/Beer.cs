@@ -28,6 +28,4 @@ public class Beer
     public MashingProcedure MashingProcedure { get; set; }
     public WaterTreatment WaterTreatment { get; set; }
     public YeastingDetails YeastingDetails { get; set; }
-    
-    
 }
