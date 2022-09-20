@@ -1,4 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<BeerContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("BeerContext") ?? throw new InvalidOperationException("Connection string 'BeerContext' not found.")));
 
 // Add services to the container.
 

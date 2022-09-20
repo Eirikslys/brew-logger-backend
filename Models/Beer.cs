@@ -9,7 +9,7 @@ public class Beer
     [Key]
     public int Id { get; set; }
     public string Name { get; set; }
-    public DateOnly CreationDate { get; set; }
+    public string CreationDate { get; set; }
     public int BatchNumber { get; set; }
     public string? Brewers { get; set; }
     public string Notes { get; set; }
