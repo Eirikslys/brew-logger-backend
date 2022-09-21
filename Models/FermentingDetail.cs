@@ -14,9 +14,9 @@ public class FermentingDetail
     public int BeerId { get; set; }
     public Beer Beer { get; set; }
     public int Liter { get; set; }
-    public string StartDate { get; set; }
+    public string? StartDate { get; set; }
     // This should probably refer to when the fermentation visibly started with the "plopping", need to clarify
-    public string FermentationStarted { get; set; }
-    public string FermentationStopped { get; set; }
-    public string Notes { get; set; }
+    public string? FermentationStarted { get; set; }
+    public string? FermentationStopped { get; set; }
+    public string? Notes { get; set; }
 }

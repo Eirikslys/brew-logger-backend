@@ -17,5 +17,5 @@ public class BitteringCalculation
     public int Yield { get; set; } 
     public int FinishedBrewLiters { get; set; } 
     // Default value should be boiled for XX minutes
-    public string MinutesNotes { get; set; }
+    public string? MinutesNotes { get; set; }
 }
