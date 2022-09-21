@@ -1,10 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>brew_logger_backend</RootNamespace>
+    <UserSecretsId>6bbb557c-e729-4607-a5f7-e54f43bd0113</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
