@@ -18,6 +18,8 @@ public class BeerContext : DbContext
 
 
         public DbSet<brew_logger_backend.Models.Beer> Beer { get; set; } = default!;
+        public DbSet<brew_logger_backend.Models.Malt> Malts { get; set; } = default!;
+
         
         
     }

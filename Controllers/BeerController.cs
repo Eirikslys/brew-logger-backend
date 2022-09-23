@@ -9,7 +9,7 @@ using brew_logger_backend.Models;
 
 namespace brew_logger_backend.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/brewlogger/[controller]")]
     [ApiController]
     public class BeerController : ControllerBase
     {
@@ -22,7 +22,7 @@ namespace brew_logger_backend.Controllers
         
         
 
-        // GET: api/Beer
+        // GET: api/brewlogger/Beer
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Beer>>> GetBeer()
         {
@@ -30,10 +30,11 @@ namespace brew_logger_backend.Controllers
         }
 
         // GET: api/Beer/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Beer>> GetBeer(int id)
+        [HttpGet("{name}")]
+        public async Task<ActionResult<Beer>> GetBeer(string name)
         {
-            var beer = await _context.Beer.FindAsync(id);
+            // var id = _context.Beer.FirstOrDefault()
+            var beer = await _context.Beer.FirstOrDefaultAsync(beer => beer.Name == name );
 
             if (beer == null)
             {
@@ -45,10 +46,10 @@ namespace brew_logger_backend.Controllers
 
         // PUT: api/Beer/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutBeer(int id, Beer beer)
+        [HttpPut("{name}")]
+        public async Task<IActionResult> PutBeer(string name, Beer beer)
         {
-            if (id != beer.Id)
+            if (name != beer.Name)
             {
                 return BadRequest();
             }
@@ -61,7 +62,7 @@ namespace brew_logger_backend.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BeerExists(id))
+                if (!BeerExists(name))
                 {
                     return NotFound();
                 }
@@ -82,14 +83,14 @@ namespace brew_logger_backend.Controllers
             _context.Beer.Add(beer);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetBeer", new { id = beer.Id }, beer);
+            return CreatedAtAction("GetBeer", new { name = beer.Name }, beer);
         }
 
         // DELETE: api/Beer/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteBeer(int id)
+        [HttpDelete("{name}")]
+        public async Task<IActionResult> DeleteBeer(string name)
         {
-            var beer = await _context.Beer.FindAsync(id);
+            var beer = await _context.Beer.FirstOrDefaultAsync(beer => beer.Name == name );
             if (beer == null)
             {
                 return NotFound();
@@ -101,9 +102,9 @@ namespace brew_logger_backend.Controllers
             return NoContent();
         }
 
-        private bool BeerExists(int id)
+        private bool BeerExists(string name)
         {
-            return _context.Beer.Any(e => e.Id == id);
+            return _context.Beer.Any(e => e.Name == name);
         }
     }
 }

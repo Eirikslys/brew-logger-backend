@@ -21,9 +21,7 @@ public class Beer
     public int TotalIngredientsPrice { get; set; }
     public int FinalProductLiters { get; set; }
     public int PricerPerLiter { get; set; }
-    
-    public List<Malt>? Malts { get; set; }
-    public List<Hop>? Hops { get; set; }
+
     public BitteringCalculation? BitteringCalculation { get; set; }
     public MashingProcedure? MashingProcedure { get; set; }
     public WaterTreatment? WaterTreatment { get; set; }
